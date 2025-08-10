@@ -367,71 +367,73 @@ const AppEnhanced = () => {
       {/* Header with user info and export */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 sm:h-16 space-y-3 sm:space-y-0">
             <div className="flex items-center">
-              <BarChart className="h-8 w-8 text-blue-600" />
-              <span className="ml-2 text-xl font-bold text-gray-900">Campus Climate Analytics</span>
+              <BarChart className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
+              <span className="ml-2 text-lg sm:text-xl font-bold text-gray-900">Campus Climate Analytics</span>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
               <div className="flex items-center text-sm text-gray-700">
                 <User className="h-4 w-4 mr-1" />
-                {user?.name} ({user?.role})
+                <span className="truncate">{user?.name} ({user?.role})</span>
               </div>
-              <button
-                onClick={() => setShowExportModal(true)}
-                className="flex items-center px-3 py-2 text-sm font-medium text-blue-600 hover:text-blue-700"
-              >
-                <Download className="h-4 w-4 mr-1" />
-                Export
-              </button>
-              <button
-                onClick={handleLogout}
-                className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-700"
-              >
-                <LogOut className="h-4 w-4 mr-1" />
-                Logout
-              </button>
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => setShowExportModal(true)}
+                  className="flex items-center px-3 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors duration-200"
+                >
+                  <Download className="h-4 w-4 mr-1" />
+                  <span className="hidden sm:inline">Export</span>
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-700 transition-colors duration-200"
+                >
+                  <LogOut className="h-4 w-4 mr-1" />
+                  <span className="hidden sm:inline">Logout</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Dashboard Content */}
-      <div className="max-w-7xl mx-auto p-6">
+      <div className="max-w-7xl mx-auto p-4 sm:p-6">
         {/* Welcome Message */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome back, {user?.name}!</h1>
-          <p className="text-gray-600">Analyzing campus climate data for {user?.institution}</p>
-          <div className="mt-4 grid grid-cols-4 gap-4">
+        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 mb-6">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Welcome back, {user?.name}!</h1>
+          <p className="text-sm sm:text-base text-gray-600">Analyzing campus climate data for {user?.institution}</p>
+          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             <div className="bg-blue-50 p-3 rounded-lg">
               <div className="flex items-center">
-                <Users className="h-5 w-5 text-blue-600 mr-2" />
-                <span className="text-sm font-medium text-gray-700">Total Responses</span>
+                <Users className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 mr-2" />
+                <span className="text-xs sm:text-sm font-medium text-gray-700">Total Responses</span>
               </div>
-              <div className="text-2xl font-bold text-blue-600">{filteredData.length}</div>
+              <div className="text-xl sm:text-2xl font-bold text-blue-600">{filteredData.length}</div>
             </div>
             <div className="bg-green-50 p-3 rounded-lg">
               <div className="flex items-center">
-                <TrendingUp className="h-5 w-5 text-green-600 mr-2" />
-                <span className="text-sm font-medium text-gray-700">Avg Satisfaction</span>
+                <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 mr-2" />
+                <span className="text-xs sm:text-sm font-medium text-gray-700">Avg Satisfaction</span>
               </div>
-              <div className="text-2xl font-bold text-green-600">{summaryStats.satisfaction?.mean || 0}</div>
+              <div className="text-xl sm:text-2xl font-bold text-green-600">{summaryStats.satisfaction?.mean || 0}</div>
             </div>
             <div className="bg-yellow-50 p-3 rounded-lg">
               <div className="flex items-center">
-                <AlertCircle className="h-5 w-5 text-yellow-600 mr-2" />
-                <span className="text-sm font-medium text-gray-700">Discrimination Rate</span>
+                <AlertCircle className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-600 mr-2" />
+                <span className="text-xs sm:text-sm font-medium text-gray-700">Discrimination Rate</span>
               </div>
-              <div className="text-2xl font-bold text-yellow-600">
+              <div className="text-xl sm:text-2xl font-bold text-yellow-600">
                 {Math.round(filteredData.filter(d => d.experiencedDiscrimination).length / filteredData.length * 100)}%
               </div>
             </div>
             <div className="bg-purple-50 p-3 rounded-lg">
               <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-purple-600 mr-2" />
-                <span className="text-sm font-medium text-gray-700">Student Org Participation</span>
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600 mr-2" />
+                <span className="text-xs sm:text-sm font-medium text-gray-700">Student Org Participation</span>
               </div>
-              <div className="text-2xl font-bold text-purple-600">
+              <div className="text-xl sm:text-2xl font-bold text-purple-600">
                 {Math.round(filteredData.filter(d => d.hasStudentOrg).length / filteredData.length * 100)}%
               </div>
             </div>
@@ -439,12 +441,12 @@ const AppEnhanced = () => {
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
+        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 mb-6">
           <div className="flex items-center mb-4">
             <Filter className="h-5 w-5 text-gray-600 mr-2" />
             <h2 className="text-lg font-semibold text-gray-800">Filters</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Program</label>
               <select 
@@ -502,12 +504,12 @@ const AppEnhanced = () => {
         {/* Navigation Tabs */}
         <div className="bg-white rounded-lg shadow-lg mb-6">
           <div className="border-b border-gray-200">
-            <nav className="flex space-x-8 px-6">
+            <nav className="flex flex-wrap space-x-2 sm:space-x-8 px-4 sm:px-6 overflow-x-auto">
               {['overview', 'analysis', 'insights', 'advanced'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`py-4 px-1 border-b-2 font-medium text-sm capitalize ${
+                  className={`py-3 sm:py-4 px-2 sm:px-1 border-b-2 font-medium text-xs sm:text-sm capitalize whitespace-nowrap transition-colors duration-200 ${
                     activeTab === tab
                       ? 'border-blue-500 text-blue-600'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -522,20 +524,20 @@ const AppEnhanced = () => {
 
         {/* Content Based on Active Tab */}
         {activeTab === 'overview' && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6" data-testid="dashboard-content">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6" data-testid="dashboard-content">
             {/* Summary Statistics */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Summary Statistics (95% Confidence Intervals)</h3>
-              <div className="space-y-4">
+            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-4">Summary Statistics (95% Confidence Intervals)</h3>
+              <div className="space-y-3 sm:space-y-4">
                 {Object.entries(summaryStats).map(([variable, stats]) => (
-                  <div key={variable} className="border-l-4 border-blue-500 pl-4">
-                    <h4 className="font-medium text-gray-800 capitalize">{variable}</h4>
-                    <div className="text-sm text-gray-600">
+                  <div key={variable} className="border-l-4 border-blue-500 pl-3 sm:pl-4">
+                    <h4 className="font-medium text-gray-800 capitalize text-sm sm:text-base">{variable}</h4>
+                    <div className="text-xs sm:text-sm text-gray-600">
                       Mean: {stats.mean} (CI: {stats.lower} - {stats.upper})
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
                       <div 
-                        className="bg-blue-500 h-2 rounded-full" 
+                        className="bg-blue-500 h-2 rounded-full transition-all duration-500" 
                         style={{width: `${(stats.mean / 5) * 100}%`}}
                       ></div>
                     </div>
@@ -545,32 +547,34 @@ const AppEnhanced = () => {
             </div>
 
             {/* Distribution Chart */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Score Distribution</h3>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={[
-                  {name: 'Inclusivity', value: summaryStats.inclusivity?.mean || 0},
-                  {name: 'Safety', value: summaryStats.safety?.mean || 0},
-                  {name: 'Supportiveness', value: summaryStats.supportiveness?.mean || 0},
-                  {name: 'Satisfaction', value: summaryStats.satisfaction?.mean || 0}
-                ]}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis domain={[0, 5]} />
-                  <Tooltip />
-                  <Bar dataKey="value" fill="#3B82F6" />
-                </BarChart>
-              </ResponsiveContainer>
+            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-4">Score Distribution</h3>
+              <div className="w-full h-64 sm:h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={[
+                    {name: 'Inclusivity', value: summaryStats.inclusivity?.mean || 0},
+                    {name: 'Safety', value: summaryStats.safety?.mean || 0},
+                    {name: 'Supportiveness', value: summaryStats.supportiveness?.mean || 0},
+                    {name: 'Satisfaction', value: summaryStats.satisfaction?.mean || 0}
+                  ]}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis domain={[0, 5]} />
+                    <Tooltip />
+                    <Bar dataKey="value" fill="#3B82F6" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
             </div>
           </div>
         )}
 
         {activeTab === 'analysis' && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Analysis Controls */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Statistical Analysis Controls</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-4">Statistical Analysis Controls</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Variable to Analyze</label>
                   <select 
