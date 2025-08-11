@@ -136,9 +136,9 @@ This project demonstrates the ability to:
 
 ## 📞 Contact & Links
 
-- **GitHub Repository**: [Link to your repo]
-- **Live Demo**: [Netlify URL]
-- **Portfolio**: [Your portfolio website]
+- **GitHub Repository**: https://github.com/Da-Dius/campus-climate-dashboard.git
+- **Live Demo**: https://campus-climate-analysis.netlify.app/
+- **Portfolio**: [soon]
 - **LinkedIn**: https://www.linkedin.com/in/ainda
 
 ---
