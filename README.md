@@ -32,7 +32,7 @@ Educational institutions often struggle to effectively analyze and present campu
 
 ## 🚀 Live Demo
 
-**[View Live Application](https://your-netlify-url.netlify.app)**
+**[View Live Application](https://campus-climate-analysis.netlify.app/)**
 
 *Note: Replace the URL above with your actual Netlify deployment URL once deployed.*
 
