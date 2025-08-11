@@ -6,7 +6,7 @@ A sophisticated, full-stack web application designed to help educational institu
 
 ## 🚀 Live Demo
 
-**[View Live Application](https://your-netlify-url.netlify.app)**
+https://campus-climate-analysis.netlify.app/
 
 ## 🎨 Key Features Implemented
 
