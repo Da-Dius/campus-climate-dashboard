@@ -32,9 +32,7 @@ Educational institutions often struggle to effectively analyze and present campu
 
 ## 🚀 Live Demo
 
-**[View Live Application](https://campus-climate-analysis.netlify.app/)**
-
-*Note: Replace the URL above with your actual Netlify deployment URL once deployed.*
+[View Live Application](https://campus-climate-analysis.netlify.app/)
 
 ### Local Development
 To run the application locally:
@@ -99,73 +97,6 @@ To run the application locally:
 - Interactive filtering
 - Dynamic chart generation
 - Real-time statistical calculations
-
-## Installation
-
-### Prerequisites
-- Node.js (version 14 or higher)
-- npm (comes with Node.js)
-
-### Step-by-Step Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd SA-DASHBOARD
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm start
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:3000` to view the application
-
-## 🚀 Deployment
-
-### Netlify Deployment (Recommended)
-
-1. **Build the production version**
-   ```bash
-   npm run build
-   ```
-
-2. **Deploy to Netlify**
-   - Go to [netlify.com](https://netlify.com) and sign up/login
-   - Drag and drop the `build` folder to the Netlify dashboard
-   - Your site will be live instantly with a random URL
-   - Optionally, connect your GitHub repository for automatic deployments
-
-3. **Custom Domain (Optional)**
-   - In your Netlify dashboard, go to Site Settings > Domain Management
-   - Add your custom domain
-   - Configure DNS settings as instructed
-
-### Alternative Deployment Options
-
-- **Vercel**: Connect your GitHub repository to Vercel for automatic deployments
-- **GitHub Pages**: Use GitHub Actions to build and deploy to GitHub Pages
-- **AWS S3 + CloudFront**: For enterprise-level hosting
-
-### Alternative Commands
-```bash
-# Build for production
-npm run build
-
-# Run tests
-npm test
-
-# Eject from Create React App (not recommended)
-npm run eject
-```
-
-## Usage
 
 ### Dashboard Navigation
 
